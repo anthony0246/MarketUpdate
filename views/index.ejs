@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market App</title>
+
+    <!-- TODO: Add Styling -->
+</head>
+
+<body class="container">
+
+    <h1 class="text-center header_style">Stock Market Summary</h1>
+
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <h2>Top 5 Best Performing Stocks</h2>
+    <table class="table_stocks">
+        <!-- Access the top5 objects and render relevant info about each one -->
+        <tr><th>Symbol</th><th>Name</th><th>Change (%)</th></tr>
+        <% top5.forEach(stock => { %>
+            <tr>
+                <td><%= stock.symbol %></td>
+                <td><%= stock.name || 'N/A' %></td>
+                <td class="text-top"><%= stock.change_percent.toFixed(2) %>%</td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <h2>Top 5 Worst Performing Stocks</h2>
+    <table class="table_stocks">
+        <!-- Access the bottom5 objects and render relevant info about each one -->
+        <tr><th>Symbol</th><th>Name</th><th>Change (%)</th></tr>
+        <% bottom5.forEach(stock => { %>
+            <tr>
+                <td><%= stock.symbol %></td>
+                <td><%= stock.name || 'N/A' %></td>
+                <td class="text-bottom"><%= stock.change_percent.toFixed(2) %>%</td>
+            </tr>
+        <% }) %>
+    </table>
+
+</body>
+</html>
