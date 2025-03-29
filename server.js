@@ -1,16 +1,16 @@
 // Loading environment variables (API key) and Importing required libraries
 
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 import express from "express";
 import axios from "axios";
-import { error } from "console";
 
 // Init Express app, port for local deployment and the marketstack API key
 
 const app = express()
 const PORT = process.env.PORT || 3000;
-const MARKSTACK_API = process.env.MARKSTACK_API
+const MARKETSTACK_API = process.env.MARKSTACK_API
 
 // Configuration for EJS | Service for static files
 
